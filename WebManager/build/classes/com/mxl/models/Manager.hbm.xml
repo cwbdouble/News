@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mxl.models.Manager" table="manager">
+		<id name="id">
+			<generator class="increment"/>
+		</id>
+		<property name="account" length="20"/>
+		<property name="name" length="50"/>
+		<property name="password" length="20"/>
+		<property name="number"/>
+	</class>
+</hibernate-mapping>

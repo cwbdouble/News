@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 配置数据库连接 -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/mynews?
+        useUnicode=true&amp;characterEncoding=utf8</property>
+		<property name="connection.username">root</property>		<!-- 指定数据库用户名 -->
+		<property name="connection.password">123456</property>		<!-- 指定数据库密码 -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- 根据映射文件自动创建表（第一次创建，以后是修改） -->
+		<property name="hbm2ddl.auto">update</property>
+		<property name="javax.persistence.validation.mode">none</property>
+		<property name="show_sql">true</property>
+        <!--指定持久化类映射文件-->
+		<mapping resource="com/mxl/models/AFNews.hbm.xml"/>
+		<mapping resource="com/mxl/models/Category.hbm.xml"/>
+		<mapping resource="com/mxl/models/Manager.hbm.xml"/>
+		<mapping resource="com/mxl/models/News.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,63 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="gb2312"/>
+	<package name="default" extends="struts-default" namespace="/">
+		<action name="manager" class="com.mxl.actions.ManagerAction">
+			<result name="input">/login.jsp</result>
+			<result name="main">/main.html</result>
+			<result name="showLogin">/show_login.jsp</result>
+			<result name="userList">/managers.jsp</result>
+			<result name="addInput">/input_manager.jsp</result>
+			<result type="redirectAction">
+				<param name="actionName">manager</param>
+				<param name="namespace">/</param>
+			</result>
+			<result name="updateInput">/update_manager.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		<action name="news" class="com.mxl.actions.NewsAction">
+			<result name="main">/news.jsp</result>
+			<result name="details">/details_news.jsp</result>
+			<result name="update">/update_news.jsp</result>
+			<result type="redirectAction">
+				<param name="actionName">news</param>
+				<param name="namespace">/</param>
+				<param name="topId">${#session.topId}</param>
+				<param name="pageNo">${pageNo}</param>
+			</result>
+			<result name="addInput">/input_news.jsp</result>
+		</action>
+		<action name="category" class="com.mxl.actions.CategoryAction">
+			<result name="clist">/category_list.jsp</result>
+			<result name="addInput">/input_category.jsp</result>
+			<result type="redirectAction">
+				<param name="actionName">category</param>
+				<param name="namespace">/</param>
+				<param name="category.topId">${#session.topId}</param>
+			</result>
+			<result name="updateInput">/update_category.jsp</result>
+		</action>
+		<action name="affiche" class="com.mxl.actions.AFAction">
+			<result name="main">/affiches.jsp</result>
+			<result name="update">/update_affiche.jsp</result>
+			<result name="details">/details_affiche.jsp</result>
+			<result name="addInput">/input_affiche.jsp</result>
+			<result type="redirectAction">
+				<param name="actionName">affiche</param>
+				<param name="namespace">/</param>
+				<param name="sign">${#session.sign}</param>
+			</result>
+		</action>
+		
+		<action name="index" class="com.mxl.actions.IndexAction">
+			<result name="index">/index.jsp</result>
+			<result name="index_newsList">/index_news.jsp</result>
+			<result name="index_news">/index_details.jsp</result>
+			<result name="index_af">/index_afnews.jsp</result>
+			<result name="more">/index_allnews.jsp</result>
+		</action>
+	</package>
+</struts>
